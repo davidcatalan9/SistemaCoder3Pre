@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{%block content%}
+
+<h1>Profesores</h1>
+
+<a href="{% url 'profesor:formulario' %}">Agregar</a>
+
+ 
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Profesion</th>
+            <th>e-mail</th>           
+            <th>Curso</th>           
+        </tr> 
+    </thead>
+    
+    <body>
+
+        {% for profesor in profesores %}
+        
+        <tr>
+            <td>
+                <a href="{% url 'profesor:detalle' profesor.id %}">
+                    {{profesor.nombre}}
+                </a>
+            </td>
+            <td>{{profesor.apellido}}</td>
+            <td>{{profesor.profesion}}</td>
+            <td>{{profesor.email}}</td>
+            <td>{{profesor.curso}}</td>
+        </tr>
+        
+        {% endfor %} 
+        
+    </body>
+    
+</table>
+
+{%endblock content%}
